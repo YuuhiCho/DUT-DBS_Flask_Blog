@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block title %}
+统计
+{% endblock %}
+{% block main_body %}
+                <div class="panel panel-default">
+                    <article class="vc-blog">
+                        <h1 class="vc-blog-title">数据统计</h1>
+                        <div class="vc-blog-content">
+                        <h4>标签统计</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>标签</th>
+                                    <th>文章</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for tag_id, tag_name, post_count in tag_post_counts %}
+                                <tr>
+                                    <td><a href="{{ url_for('blog.tag', tag_id=tag_id) }}">{{ tag_name }}</a></td>
+                                    <td>{{ post_count }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <h4>访问统计</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>文章</th>
+                                    <th>访问数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post_id, post_title, view_count in post_view_counts %}
+                                <tr>
+                                    <td><a href="{{ url_for('blog.post', post_id=post_id) }}">{{ post_title }}</a></td>
+                                    <td>{{ view_count }}</td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                        </table>
+
+                        <h4>文章点赞统计</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>文章</th>
+                                    <th>点赞数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post_id, post_title, like_count in post_like_counts %}
+                                <tr>
+                                    <td><a href="{{ url_for('blog.post', post_id=post_id) }}">{{ post_title }}</a></td>
+                                    <td>{{ like_count }}</td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                        </table>
+
+                        <h4>评论统计</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>文章</th>
+                                    <th>评论数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post_id, post_title, comment_count in post_comment_counts %}
+                                <tr>
+                                    <td><a href="{{ url_for('blog.post', post_id=post_id) }}#comment">{{ post_title }}</a></td>
+                                    <td>{{ comment_count }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <h4>评论点赞统计</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>所在文章</th>
+                                    <th>评论者</th>
+                                    <th>评论点赞数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post_id, commenter_name, comment_like_count, post_title in comment_like_counts %}
+                                <tr>
+                                    <td><a href="{{ url_for('blog.post', post_id=post_id) }}">{{ post_title }}</a></td>
+                                    <td><a href="{{ url_for('blog.post', post_id=post_id) }}#comment">{{ commenter_name }}</a></td>
+                                    <td>{{ comment_like_count }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+{#                        {% if user %}#}
+                            <h4>SQL语句查询</h4>
+                            <div class="panel-body">
+                                <p>
+                                    为保证安全，只提供select语句的功能，其他语句无效。<br>
+                                    表结构如下：<br><br>
+                                    users: id(主码), username, password<br>
+                                    tags: id(主码), tag_name<br>
+                                    posts: id(主码), title, content, created_time, view_count, like_count, comment_count, tag_id(外键), user_id(外键)<br>
+                                    comments: id(主码), content, created_time, local_time, like_count, commenter_name, commenter_email, post_id(外键)<br>
+                                </p>
+                            </div>
+                            <form role="search"  action="{{ url_for('blog.sql_search') }}">
+                                    <div class="form-group">
+                                        <input type="text" name="sql_query" class="form-control" placeholder="回车查询…">
+                                    </div>
+                            </form>
+{#                        {% endif %}#}
+{#                    </div>#}
+                    </div>
+                    </article>
+                </div>
+{% endblock %}

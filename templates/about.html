@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+关于
+{% endblock %}
+{% block main_body %}
+                <div class="panel panel-default">
+                    <article class="vc-blog">
+                        <h1 class="vc-blog-title">关于我</h1>
+                        <div class="vc-blog-content">
+                            <img src="{{ url_for('static', filename='img/about_icon.jpg')}}"  alt="这是头像" width="300" height="300">
+                            <p>
+                                <br>班级：114514
+                            </p>
+                            <p>
+                                学号：1919810
+                            </p>
+                            <div class="embed-music">
+                                <iframe
+                                        src="https://music.163.com/outchain/player?type=2&id=26107669&auto=0&height=66"
+                                        frameborder="no"
+                                        width=510
+                                        height=86
+                                        align=center
+                                ></iframe>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+{% endblock %}

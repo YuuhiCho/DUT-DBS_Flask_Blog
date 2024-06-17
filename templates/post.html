@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block main_body %}
+<div class="panel panel-default">
+    <post class="vc-blog">
+        <h1 class="vc-blog-title">{{ post.title }}</h1>
+        <p class="vc-author-info">
+            <time>{{ display_time.strftime('%Y-%m-%d %H:%M:%S') }}</time> &bull; <a href="{{ url_for('blog.about') }}">{{ post.user.username }}</a> &bull; 👁{{ post.view_count }} &bull;
+            <a class="like-info"> <button class="like-button" onclick="like_post({{ post.id }})">❤</button><span id="like_count_{{ post.id }}">{{ post.like_count }}</span>
+                </a>
+        </p>
+        <div class="vc-blog-content">
+            {{ post.content.replace('\n', '<br>')|safe }}
+        </div>
+        <span class="vc-tags">
+            <a href="{{ url_for('blog.tag', tag_id=post.tag_id) }}">标签：{{ post.tag.tag_name }}</a>
+
+            {% if user %}
+            <a href="{{ url_for('blog.edit', post_id=post.id) }}">编辑</a>
+            <a href="{{ url_for('blog.delete', post_id=post.id) }}" onclick="return confirm('确认要删除吗？');">删除</a>
+            {% endif %}
+        </span>
+        <div class="vc-comments" id="comment">
+            <h2>评论：</h2>
+                {% for comment in comments %}
+                    <div class="vc-comment" >
+                        <strong>{{ comment.commenter_name }}({{ comment.commenter_email }}): </strong><br>
+                        <br>{{ comment.content }}<br>
+
+                        <br><time>发表于{{ comment.local_time.strftime('%Y-%m-%d %H:%M:%S') }}  &bull;</time>
+                            <a class="like-info" ><button class="like-button" onclick="like_comment({{ comment.id }})">❤</button><span id="like_count_{{ comment.id }}">{{ comment.like_count }}</span>
+                    </a>
+                        <span class="vc-tags">
+                            {% if user %}
+                            <a href="{{ url_for('blog.delete_comment', comment_id=comment.id) }}" onclick="return confirm('确认要删除这条评论吗？');">删除</a>
+                            {% endif %}
+                        </span>
+                    </div>
+                {% else %}
+                <li>还没有任何评论</li>
+                {% endfor %}
+        </div>
+        <div class="vc-add-comment">
+            <h3>添加新评论：</h3>
+            <form action="{{ url_for('blog.create_comment', post_id=post.id) }}" method="post">
+                <input type="text" placeholder="请输入昵称" name="commenter_name" required><br>
+                <input type="email" placeholder="请输入邮箱" name="commenter_email" required><br>
+                <input type="text" placeholder="请输入评论" name="content" required>
+                <button type="submit">发送评论</button>
+            </form>
+        </div>
+        <div class="vc-copyright">
+            转载请注明：文章转载自：flaskblog（<a href="https://flaskblog.example/">https://flaskblog.example/a>）
+        </div>
+    </post>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+SQL_查询结果
+{% endblock %}
+{% block main_body %}
+    <div class="panel panel-default">
+            <article class="vc-blog">
+                <h1 class="vc-blog-title">查询结果</h1>
+                <div class="vc-blog-content">
+                    <div class="sql-result">
+                    <br>{{ results }}
+                    </div>
+            </div>
+            </article>
+    </div>
+{% endblock %}

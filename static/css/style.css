@@ -1,0 +1,280 @@
+body {
+	position: relative;
+	font-size: 14px;
+	background-color: #ffffff;
+	font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, Verdana, 'Hiragino Sans GB', 'Microsoft YaHei', STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif
+}
+embed {
+	display: none;
+}
+::selection {
+	background-color: #fbab69;
+	color: #fbab69;
+}
+a {
+	color: #797979;
+}
+a:hover {
+	color: #fbab69;
+	text-decoration: none;
+}
+.vc-pt15 {
+	padding-top: 15px;
+}
+.vc-header {
+	background-color: #fff;
+	padding: 15px 0;
+	border-bottom: 1px solid #efefef;
+}
+.vc-header .vc-logo {
+	margin: 0;
+	padding: 0;
+	width: 150px;
+	height: 40px;
+	text-indent: -999px;
+}
+.vc-container {
+	padding-top: 30px;
+}
+.vc-page-title {
+	margin-top: 10px;
+	font-size: 30px;
+}
+.vc-page-title a {
+	color: #555;
+}
+.vc-page-title a:hover {
+	color: #fbab69;
+}
+.vc-author-info {
+	color: #aaa;
+	font-size: 14px;
+	line-height: 18px;
+}
+.vc-author-info a {
+	color: #aaa;
+}
+.vc-author-info a:hover {
+	color: #fbab69;
+}
+.vc-author-info>time,
+.vc-author-info>span {
+	margin: 0 .3em 0;
+}
+.vc-author-info>:first-child {
+	margin-left: 0;
+	padding-left: 30px;
+}
+.vc-widget-title {
+	font-size: 18px;
+	margin: 0 auto;
+	padding: 15px 15px 0;
+}
+/* 博客内容 */
+.vc-blog {
+	width: 100%;
+	height: auto;
+	padding: 0 20px;
+}
+.vc-blog-title {
+	font-size: 30px;
+	line-height: 42px;
+	padding-left: 30px;
+	font-weight: normal;
+	text-transform: none;
+}
+.vc-blog-content {
+	width: 100%;
+	height: auto;
+	margin: 15px auto 10px;
+	padding-left: 30px;
+	overflow: hidden;
+	font-size: 14px;
+}
+.function-info {
+	list-style-position: inside;
+	padding-left: 0;
+	margin-left: 0;
+}
+.panel.panel-default .vc-copyright {
+	background: #f9f9f9;
+	padding: .5em .7em;
+	margin: 1em 0;
+	border-left-width: 4px;
+}
+.vc-tags {
+	font-size: 12px;
+	padding-left: 10px;
+	float: right;
+}
+.vc-tags a:before {
+	content: "#";
+}
+.vc-tags a {
+	margin-right: .5em;
+	padding: 2px 4px;
+	border-radius: 2px;
+	background: #ccc;
+	color: #fff;
+	-webkit-transition: background .3s;
+	-moz-transition: background .3s;
+	transition: background .3s;
+}
+.vc-tags a:hover {
+	background-color: #fbab69;
+}
+.mian_body{
+	margin:0 0 auto;
+}
+.vc-more-link {
+	color: #fbab69;
+	font-weight: bold;
+}
+
+/* 页脚 */
+
+.vc-footer {
+	background: #ffffff;
+	padding-bottom: 30px;
+}
+.vc-footer .vc-footer-info {
+	background: #2d2e2f;
+}
+.vc-footer .vc-footer-info .vc-footer-menu {
+	padding: 12px 20px;
+	text-align: center;
+	list-style: none;
+	overflow: hidden;
+}
+.vc-footer .vc-footer-info .vc-footer-menu > li {
+	vertical-align: top;
+}
+.vc-footer .vc-footer-info .vc-footer-menu > li:nth-child(n+2) {
+	margin-left: 15px;
+}
+.vc-footer .vc-footer-info .vc-footer-menu > li,
+.vc-footer .vc-footer-info .vc-footer-menu > li > a {
+	display: inline-block;
+	font-size: 14px;
+}
+.vc-footer .vc-footer-copyright {
+	padding-top: 30px;
+	text-align: center;
+	font-weight: 700;
+}
+.vc-fixed {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+.vc-comments {
+    margin-top: 40px;
+    padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: none;
+}
+.vc-comments h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.vc-comment {
+    padding: 10px;
+
+    /*margin: 15px auto;*/
+	margin-right: 15px;
+	margin-bottom: 15px;
+	background-color: #ffffff;
+    border-radius: 4px;
+	border: none;
+	word-wrap: break-word;
+}
+.vc-comment strong {
+    font-size: 16px;
+    color: #444;
+}
+.vc-comment span.vc-tags {
+    float: right;
+}
+.vc-comment span.vc-tags a:hover {
+    text-decoration: underline;
+}
+.vc-comment time{
+	color: #aaa;
+}
+.vc-add-comment {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: none;
+}
+
+.vc-add-comment h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.vc-add-comment form {
+    display: flex;
+    flex-direction: column;
+}
+.vc-add-comment form input[type="text"],
+.vc-add-comment form input[type="email"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.vc-add-comment form button {
+    padding: 10px 15px;
+    background-color: #fbab69;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.vc-add-comment form button:hover {
+    background-color: #fbab69;
+}
+.embed-music {
+	border: 0;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	float: left;
+}
+.sql-result {
+	white-space: pre-wrap;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	padding: 10px;
+	font-family: monospace;
+}
+.post-info {
+	color: #aaa;
+	font-size: 15px;
+	line-height: 18px;
+}
+.post-info a {
+	color: #aaa;
+}
+.like-button {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+}
+.like-info {
+	display: inline;
+	color: #aaa;
+}
+.like-info:hover {
+	color: #fbab69;
+}

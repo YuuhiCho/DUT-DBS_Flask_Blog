@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+文章列表
+{% endblock %}
+
+{% block main_body %}
+<div class="main_body">
+    {% if posts %}
+        {% for post in posts %}
+        <div class="thumbnail">
+            <div class="caption">
+                <h1 class="vc-page-title">
+                    <a href="{{ url_for('blog.post', post_id=post.id) }}">{{ post.title }}</a>
+                </h1>
+                <p class="hidden-xs">
+                    {{ post.content[:30]|striptags }}……
+                    <a class="vc-more-link" href="{{ url_for('blog.post', post_id=post.id) }}" role="button">点击阅读全文 &raquo;</a>
+                </p>
+                <p class="post-info">
+                     👁{{ post.view_count }} &bull; ❤{{ post.like_count }} &bull; 💬{{ post.comment_count }}
+                </p>
+                <p class="clearfix">
+                    <span class="vc-tags">
+                        <a href="{{ url_for('blog.tag', tag_id=post.tag_id) }}">标签：{{ post.tag.tag_name }}</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+{#       如果没有帖子，就显示 no_posts_message#}
+        <div class="alert alert-info">{{ no_posts_message }}</div>
+    {% endif %}
+    <nav>
+        {% import "_macros.html" as macros %}
+        <div class="pagination">
+            {{ macros.pagination_widget(pagination, 'blog.index') }}
+        </div>
+    </nav>
+</div>
+{% endblock %}
+``
